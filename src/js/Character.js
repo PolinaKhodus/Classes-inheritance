@@ -1,9 +1,6 @@
 export default class Character {
   constructor(name, type) {
-    this.name = name;
-    this.type = type;
-    this.health = 100;
-    this.level = 1;
+    
     const typePlayer = [
       "Bowman",
       "Daemon",
@@ -16,13 +13,23 @@ export default class Character {
     if (typeof name !== "string") {
       throw new Error("Ошибка! Имя должно быть строкой!");
     }
-    if (name.length < 2 || name.length > 10) {
+    else if (name.length < 2 || name.length > 10) {
        throw new Error ("Ошибка! Количество символов от 2 до 10!");
      }
-    if (!typePlayer.includes(type)) {
-      throw new Error ("Ошибка! Такой игрок не существует!");;
-    }
-  }
+     else {
+       this.name = name;
+     }
+
+     if (!typePlayer.includes(type)) {
+       throw new Error ("Ошибка! такой игрок не существует!");
+     }
+     else {
+       this.type = type;
+     }
+    
+     this.health = 100;
+     this.length = 1;
+}
 
     levelUp(){
       if (this.health > 0){
